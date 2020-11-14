@@ -13,7 +13,7 @@ findImgSrc = re.compile(r'<img.*src="(.*?)"', re.S) # 正则匹配图片链接,r
 findTitle = re.compile(r'<span class="title">(.*?)</span>')  # 正则匹配影片片名
 findRating = re.compile(r'<span class="rating_num" property="v:average">(.*?)</span>')  # 正则匹配影片评分
 findJudge = re.compile(r'<span>(\d*)人评价</span>')  # 正则匹配评价人数
-findInq = re.compile(r'<span class="inq">(.*?)</span>')  # z正则匹配影片概况
+findInq = re.compile(r'<span class="inq">(.*?)</span>')  # 正则匹配影片概况
 findBd = re.compile(r'<p class="">(.*?)</p>', re.S)  # 正则匹配影片相关内容
 
 # 主函数
@@ -95,18 +95,18 @@ def solveData(datalist, html):
 
 # 保存数据实现
 def saveData(datalist, savepath):
-    workbook = xlwt.Workbook(encoding='utf-8', style_compression=0)
-    worksheet = workbook.add_sheet('豆瓣电影250', cell_overwrite_ok=True)
+    workbook = xlwt.Workbook(encoding='utf-8', style_compression=0) # 创建excel文件
+    worksheet = workbook.add_sheet('豆瓣电影250', cell_overwrite_ok=True)   # 创建sheet命名为豆瓣电影250
     col = ("电影详情链接", "图片链接", "影片中文名", "影片外文名", "影片评分", "评价人数", "概况", "相关信息")
     for i in range(0, 8):
         worksheet.write(0, i, col[i])  # 列名
-    for i in range(0, 250):
+    for i in range(0, 250): #读入之前爬取的数据
         print("第%d条" % (i + 1))
         data = datalist[i]
         for j in range(0, 8):
             worksheet.write(i + 1, j, data[j])
     print("爬取完成")
-    workbook.save(savepath)
+    workbook.save(savepath) #保存操作
 
 # 入口
 if __name__ == "__main__":
