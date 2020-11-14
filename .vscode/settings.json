@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "helloworld",
+            "database": "${workspaceFolder:douban250_spider}/test/test.db"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}

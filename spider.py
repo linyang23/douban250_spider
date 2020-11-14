@@ -1,11 +1,10 @@
-from bs4 import BeautifulSoup  # 网页解析
 import re  # 正则搜索
 import urllib.request
 import urllib.error  # 制定URL
 import xlwt  # 进行excel操作
-import sqlite3
+import sqlite3  # 进行SQLite数据库操作
 
-from xlwt.Worksheet import Worksheet  # 进行SQLite数据库操作
+from bs4 import BeautifulSoup  # 网页解析
 
 # 定义正则匹配对象
 findLink = re.compile(r'<a href="(.*?)">')  # 正则匹配影片详情链接
